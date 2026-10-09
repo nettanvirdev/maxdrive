@@ -1,7 +1,7 @@
 {
   "name": "maxdrive",
   "version": "0.1.0",
-  "description": "Secure storage for Windows: pool Google Drive accounts and S3-compatible buckets into one encrypted drive, with a built-in MCP server and LAN device pairing.",
+  "description": "Secure storage for your desktop: pool Google Drive accounts and S3-compatible buckets into one encrypted drive, with a built-in MCP server and LAN device pairing.",
   "keywords": [
     "electron",
     "google-drive",

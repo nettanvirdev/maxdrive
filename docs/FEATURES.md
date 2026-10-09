@@ -1,7 +1,7 @@
 # MaxDrive — Feature Inventory
 
-Every user-facing capability in the app, one line each. MaxDrive is a Windows
-secure-storage app that merges multiple Google Drive accounts and S3-compatible
+Every user-facing capability in the app, one line each. MaxDrive is a desktop
+secure-storage app (Windows today, more platforms planned) that merges multiple Google Drive accounts and S3-compatible
 buckets into one virtual drive, with end-to-end encryption (Secure Storage and
 vault mode), local-folder backup, and an opt-in LAN API + MCP server. Step-by-step
 user guides for each area live in [guides/](guides/).

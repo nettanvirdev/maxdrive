@@ -1,9 +1,9 @@
 # MaxDrive documentation
 
-MaxDrive is a secure-storage app for Windows: it pools Google Drive accounts
-and S3-compatible buckets into one drive, encrypts what you choose on your PC
-before it leaves, and lets AI assistants and paired devices use it over your
-local network.
+MaxDrive is a desktop secure-storage app (Windows today, macOS and Linux
+planned): it pools Google Drive accounts and S3-compatible buckets into one
+drive, encrypts what you choose on your PC before it leaves, and lets AI
+assistants and paired devices use it over your local network.
 
 ## Start here
 

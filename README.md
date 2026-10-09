@@ -4,14 +4,14 @@
 
 # MaxDrive
 
-**Secure storage for Windows.** Pool any number of Google Drive accounts and
+**Secure storage for your desktop.** Pool any number of Google Drive accounts and
 S3-compatible buckets into one encrypted drive - with a built-in MCP server and
 device pairing, so AI assistants and your phone can use it too.
 
 [![CI](https://github.com/nettanvirdev/maxdrive/actions/workflows/ci.yml/badge.svg)](https://github.com/nettanvirdev/maxdrive/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/nettanvirdev/maxdrive?include_prereleases&sort=semver)](https://github.com/nettanvirdev/maxdrive/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Platform: Windows](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6)
+![Platforms: Windows, macOS and Linux coming](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%26%20Linux%20soon-0078D6)
 
 [Download](#download) · [Getting started](docs/getting-started.md) · [Documentation](docs/README.md) · [Build from source](#build-from-source) · [Contributing](CONTRIBUTING.md)
 
@@ -89,7 +89,8 @@ See the complete list in [docs/FEATURES.md](docs/FEATURES.md).
 
 ## Download
 
-Grab the latest build from
+MaxDrive runs on Windows 10 and 11 today; macOS and Linux builds are on the
+roadmap. Grab the latest build from
 [Releases](https://github.com/nettanvirdev/maxdrive/releases):
 
 | File                          | What it is                                  |
@@ -109,7 +110,8 @@ bucket's keys.
 
 ### Prerequisites
 
-- Windows 10 or 11 (x64)
+- Windows 10 or 11 (x64) - the only supported platform for now; macOS and
+  Linux support is planned
 - [Bun](https://bun.sh) 1.2 or newer (package manager and script runner)
 - [Node.js](https://nodejs.org) 20 or newer (used by Electron's build tooling)
 - Git

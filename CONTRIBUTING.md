@@ -22,7 +22,7 @@ By taking part you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Development setup
 
-You need Windows 10/11, [Bun](https://bun.sh) 1.2+, [Node.js](https://nodejs.org)
+You need Windows 10/11 (the only supported platform for now), [Bun](https://bun.sh) 1.2+, [Node.js](https://nodejs.org)
 20+ and Git.
 
 ```bash
