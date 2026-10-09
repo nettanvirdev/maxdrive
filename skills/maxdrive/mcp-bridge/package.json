@@ -1,0 +1,13 @@
+{
+  "name": "maxdrive-mcp-bridge",
+  "version": "1.0.0",
+  "description": "Relay a stdio MCP client to MaxDrive's in-app HTTP MCP endpoint.",
+  "type": "commonjs",
+  "bin": {
+    "maxdrive-mcp-bridge": "bin.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true
+}

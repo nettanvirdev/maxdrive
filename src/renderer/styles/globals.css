@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Color schemes. Each is a light block + a `.dark` block keyed on
+ * html[data-scheme] (set by lib/theme.js). Schemes are attribute selectors, not
+ * :root, so any element can carry one - the Settings preview cards render a
+ * scheme by putting data-scheme (and .dark) on a div.
+ *
+ * Surface roles: --background = sidebar + header shell, --card = main content
+ * panel and dialogs, --surface-variant/--folder-card/--file-card = cards inside
+ * the panel. Every scheme block must set every surface/text token, or values
+ * leak in from the ancestor scheme.
+ *
+ * "drive" is generated from design.json ("Google Drive Modern / Material You").
+ * shadcn's variable names are kept so its primitives theme themselves.
+ */
+@layer base {
+  :root,
+  [data-scheme="drive"] {
+    --background: #f8fafd;
+    --foreground: #1f1f1f;
+
+    --card: #ffffff;
+    --card-foreground: #1f1f1f;
+
+    --popover: #ffffff;
+    --popover-foreground: #1f1f1f;
+
+    --primary: #0b57d0;
+    --primary-foreground: #ffffff;
+
+    --secondary: #edf2fa;
+    --secondary-foreground: #444746;
+
+    --muted: #edf2fa;
+    --muted-foreground: #444746;
+
+    --accent: #c2e7ff;
+    --accent-foreground: #001d35;
+
+    --destructive: #d93025;
+    --destructive-foreground: #ffffff;
+
+    --border: #e1e3e1;
+    --input: #e1e3e1;
+    --ring: #0b57d0;
+
+    --radius: 12px;
+
+    /* design.json tokens without a shadcn equivalent */
+    --surface-variant: #edf2fa;
+    --field-focus: #ffffff;
+    --folder-card: #edf2fa;
+    --file-card: #f0f4f9;
+    --card-border: #e0e3e7;
+    --text-tertiary: #5e5e5e;
+    --hover-overlay: rgba(31, 31, 31, 0.08);
+    --selected-overlay: rgba(11, 87, 208, 0.12);
+    --surface-radius: 24px;
+
+    /* File-type accents */
+    --type-pdf: #d93025;
+    --type-docs: #2684fc;
+    --type-sheets: #12a55c;
+    --type-slides: #f4b400;
+    --type-video: #ea4335;
+
+    --motion-standard: cubic-bezier(0.2, 0, 0, 1);
+
+    --scrollbar-thumb: #dadce0;
+    --scrollbar-thumb-hover: #bdc1c6;
+  }
+
+  /* Google Drive's dark theme: near-black canvas, raised grey surfaces, and
+     a light-blue accent (dark mode inverts Drive's blue rather than dimming it). */
+  .dark {
+    --background: #1b1b1b;
+    --foreground: #e3e3e3;
+
+    --card: #282a2c;
+    --card-foreground: #e3e3e3;
+
+    --popover: #2d2f31;
+    --popover-foreground: #e3e3e3;
+
+    --primary: #a8c7fa;
+    --primary-foreground: #062e6f;
+
+    --secondary: #2d2f31;
+    --secondary-foreground: #c4c7c5;
+
+    --muted: #2d2f31;
+    --muted-foreground: #c4c7c5;
+
+    --accent: #004a77;
+    --accent-foreground: #c2e7ff;
+
+    --destructive: #f28b82;
+    --destructive-foreground: #1b1b1b;
+
+    --border: #444746;
+    --input: #444746;
+    --ring: #a8c7fa;
+
+    --surface-variant: #2d2f31;
+    --field-focus: #1f2123;
+    --folder-card: #2d2f31;
+    --file-card: #2d2f31;
+    --card-border: #444746;
+    --text-tertiary: #9aa0a6;
+    --hover-overlay: rgba(227, 227, 227, 0.08);
+    --selected-overlay: rgba(168, 199, 250, 0.16);
+
+    --type-pdf: #f28b82;
+    --type-docs: #8ab4f8;
+    --type-sheets: #81c995;
+    --type-slides: #fdd663;
+    --type-video: #f28b82;
+
+    --scrollbar-thumb: #5f6368;
+    --scrollbar-thumb-hover: #80868b;
+  }
+
+  /* Graphite: neutral monochrome, white-on-black primary, translucent
+     borders. Dark surfaces step #0f0f0f shell → #151515 panel → #1c1c1c cards.
+     Midnight shares the light half. */
+  [data-scheme="graphite"],
+  [data-scheme="midnight"] {
+    --background: #f1f1f1;
+    --foreground: #111111;
+
+    --card: #ffffff;
+    --card-foreground: #111111;
+
+    --popover: #ffffff;
+    --popover-foreground: #111111;
+
+    --primary: #000000;
+    --primary-foreground: #ffffff;
+
+    --secondary: #ebebeb;
+    --secondary-foreground: #333333;
+
+    --muted: #ebebeb;
+    --muted-foreground: #666666;
+
+    --accent: rgba(0, 0, 0, 0.07);
+    --accent-foreground: #111111;
+
+    --destructive: #e40014;
+    --destructive-foreground: #ffffff;
+
+    --border: rgba(0, 0, 0, 0.09);
+    --input: rgba(0, 0, 0, 0.14);
+    --ring: #9b9b9b;
+
+    --surface-variant: #ebebeb;
+    --field-focus: #ffffff;
+    --folder-card: #ebebeb;
+    --file-card: #ebebeb;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --text-tertiary: #666666;
+    --hover-overlay: rgba(0, 0, 0, 0.05);
+    --selected-overlay: rgba(0, 0, 0, 0.08);
+
+    --scrollbar-thumb: #cecece;
+    --scrollbar-thumb-hover: #b4b4b4;
+  }
+
+  .dark[data-scheme="graphite"],
+  .dark[data-scheme="midnight"] {
+    --background: #0f0f0f;
+    --foreground: #eeeeee;
+
+    --card: #151515;
+    --card-foreground: #eeeeee;
+
+    --popover: #1c1c1c;
+    --popover-foreground: #eeeeee;
+
+    --primary: #ffffff;
+    --primary-foreground: #000000;
+
+    --secondary: #1c1c1c;
+    --secondary-foreground: #ffffff;
+
+    --muted: #1c1c1c;
+    --muted-foreground: #b4b4b4;
+
+    --accent: #1c1c1c;
+    --accent-foreground: #ffffff;
+
+    --destructive: #ff6568;
+    --destructive-foreground: #ffffff;
+
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.14);
+    --ring: #9b9b9b;
+
+    --surface-variant: #1c1c1c;
+    --field-focus: #151515;
+    --folder-card: #1c1c1c;
+    --file-card: #1c1c1c;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-tertiary: #9b9b9b;
+    --hover-overlay: rgba(255, 255, 255, 0.06);
+    --selected-overlay: rgba(255, 255, 255, 0.1);
+
+    --scrollbar-thumb: #333333;
+    --scrollbar-thumb-hover: #4d4d4d;
+  }
+
+  /* Midnight: Graphite with true-black surfaces for OLED panels. */
+  .dark[data-scheme="midnight"] {
+    --background: #000000;
+    --card: #080808;
+    --popover: #121212;
+    --secondary: #121212;
+    --muted: #121212;
+    --accent: #141414;
+    --surface-variant: #121212;
+    --field-focus: #080808;
+    --folder-card: #121212;
+    --file-card: #121212;
+  }
+}
+
+/*
+ * Google Sans isn't redistributable, so the stack falls through to Roboto Flex
+ * and then Segoe UI. To ship the exact design.json look, drop a variable
+ * RobotoFlex.woff2 into public/fonts and add an @font-face here - the CSP
+ * allows font-src 'self', so it must be bundled rather than loaded from a CDN.
+ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply h-full bg-transparent text-foreground antialiased overflow-hidden;
+    font-family:
+      "Google Sans", "Roboto Flex", Roboto, "Segoe UI", system-ui, sans-serif;
+  }
+
+  #root {
+    @apply h-full;
+  }
+
+  /* Motion is a design requirement, but never at the cost of accessibility. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+  background-clip: content-box;
+}

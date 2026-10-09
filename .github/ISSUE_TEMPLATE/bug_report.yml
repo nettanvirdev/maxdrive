@@ -1,0 +1,57 @@
+name: Bug report
+description: Something in MaxDrive doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please **don't** post security problems here - see SECURITY.md.
+        Never paste tokens, keys, recovery keys or OAuth client secrets.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MaxDrive version
+      description: Settings -> About, or the commit hash if you built from source.
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How do you run it?
+      options: [Installer, Portable, From source (bun run dev)]
+    validations:
+      required: true
+  - type: dropdown
+    id: storage
+    attributes:
+      label: Storage involved
+      multiple: true
+      options: [Google Drive, S3-compatible, Secure Storage vault, Vault mode, Local folder backup, Remote access / MCP, Not storage-related]
+  - type: input
+    id: os
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant lines from %APPDATA%\maxdrive\logs\ (remove email addresses and file names you don't want public).
+      render: text

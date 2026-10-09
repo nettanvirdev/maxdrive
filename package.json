@@ -1,0 +1,113 @@
+{
+  "name": "maxdrive",
+  "version": "0.1.0",
+  "description": "Secure storage for Windows: pool Google Drive accounts and S3-compatible buckets into one encrypted drive, with a built-in MCP server and LAN device pairing.",
+  "keywords": [
+    "electron",
+    "google-drive",
+    "s3",
+    "storage",
+    "encryption",
+    "e2ee",
+    "mcp",
+    "desktop",
+    "windows"
+  ],
+  "homepage": "https://github.com/nettanvirdev/maxdrive#readme",
+  "bugs": {
+    "url": "https://github.com/nettanvirdev/maxdrive/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nettanvirdev/maxdrive.git"
+  },
+  "license": "MIT",
+  "author": "Tanvir Ahamed (https://github.com/nettanvirdev)",
+  "private": true,
+  "type": "module",
+  "main": "src/main/main.cjs",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-warnings concurrently \"bun run dev:vite\" \"bun run dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "cross-env NODE_ENV=development NODE_OPTIONS=--no-warnings electron .",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "electron .",
+    "pack": "bun run build && electron-builder --dir --publish never",
+    "dist": "bun run build && electron-builder --win --publish never",
+    "postinstall": "electron-builder install-app-deps",
+    "icons": "electron scripts/generate-icons.cjs && node scripts/install-icons.cjs",
+    "test": "vitest run --config vitest.config.js",
+    "test:watch": "vitest --config vitest.config.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "electron-log": "^5.4.4",
+    "ws": "^8.21.1",
+    "yauzl": "^3.4.0",
+    "yazl": "^3.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.23",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.6",
+    "jsdom": "^25.0.1",
+    "lucide-react": "^0.303.0",
+    "postcss": "^8.5.6",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.19",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9",
+    "zustand": "^5.0.14"
+  },
+  "build": {
+    "appId": "com.maxdrive.app",
+    "productName": "MaxDrive",
+    "files": [
+      "dist/**/*",
+      "src/main/**/*",
+      "public/assets/**/*"
+    ],
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/assets/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "MaxDrive",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "copyright": "Copyright (c) 2026 Tanvir Ahamed",
+    "portable": {
+      "artifactName": "${productName}-${version}-Portable.${ext}"
+    }
+  }
+}
